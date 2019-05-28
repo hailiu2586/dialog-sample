@@ -11,7 +11,7 @@
             "steps": [
                 {
                     "$type": "Microsoft.SendActivity",
-                    "activity": "robocopy said {turn.activity.text}!"
+                    "activity": "today said {turn.activity.text}!"
                 }
             ]
         }
