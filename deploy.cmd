@@ -55,8 +55,9 @@ echo Handling bot artifacts deployment.
 :: 1. KuduSync
 IF /I "%IN_PLACE_DEPLOYMENT%" NEQ "1" (
   rem call :ExecuteCmd "%KUDU_SYNC_CMD%" -x -v 150 -f "%DEPLOYMENT_SOURCE%\Dialogs" -t "%DEPLOYMENT_TARGET%" -n "%NEXT_MANIFEST_PATH%" -p "%PREVIOUS_MANIFEST_PATH%" -i ".git;.hg;.deployment;deploy.cmd"
-  call :ExecuteCmd robocopy /MIR "%DEPLOYMENT_SOURCE%\Dialogs" "%DEPLOYMENT_TARGET%"
-  IF !ERRORLEVEL! NEQ 0 goto error
+  robocopy /MIR "%DEPLOYMENT_SOURCE%\Dialogs" "%DEPLOYMENT_TARGET%"
+  rem https://ss64.com/nt/robocopy-exit.html says robocopy exit code LEQ 7 is considered success
+  IF !ERRORLEVEL! GEQ 8 goto error
 )
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
