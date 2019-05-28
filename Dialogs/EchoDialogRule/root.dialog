@@ -11,7 +11,7 @@
             "steps": [
                 {
                     "$type": "Microsoft.SendActivity",
-                    "activity": "deploy said {turn.activity.text}!"
+                    "activity": "exec said {turn.activity.text}!"
                 }
             ]
         }

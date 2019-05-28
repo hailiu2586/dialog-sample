@@ -55,7 +55,7 @@ echo Handling bot artifacts deployment.
 :: 1. KuduSync
 IF /I "%IN_PLACE_DEPLOYMENT%" NEQ "1" (
   rem call :ExecuteCmd "%KUDU_SYNC_CMD%" -x -v 150 -f "%DEPLOYMENT_SOURCE%\Dialogs" -t "%DEPLOYMENT_TARGET%" -n "%NEXT_MANIFEST_PATH%" -p "%PREVIOUS_MANIFEST_PATH%" -i ".git;.hg;.deployment;deploy.cmd"
-  robocopy /MIR "%DEPLOYMENT_SOURCE%\Dialogs" "%DEPLOYMENT_TARGET%"
+  call :ExecuteCmd robocopy /MIR "%DEPLOYMENT_SOURCE%\Dialogs" "%DEPLOYMENT_TARGET%"
   IF !ERRORLEVEL! NEQ 0 goto error
 )
 
