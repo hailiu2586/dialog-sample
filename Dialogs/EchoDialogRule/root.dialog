@@ -11,7 +11,7 @@
             "steps": [
                 {
                     "$type": "Microsoft.SendActivity",
-                    "activity": "you typed {turn.activity.text}!"
+                    "activity": "you changed {turn.activity.text}!"
                 }
             ]
         }
