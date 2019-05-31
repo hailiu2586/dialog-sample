@@ -1,19 +1,21 @@
 {
     "$schema": "../../app.schema",
     "$type": "Microsoft.AdaptiveDialog",
-    "autoEndDialog": false,
-    "rules": [
+    "steps": [
         {
-            "$type": "Microsoft.EventRule",
-            "events": [
-                "activityReceived"
-            ],
+            "$type": "Microsoft.IfCondition",
+            "condition": "user.name == null",
             "steps": [
                 {
-                    "$type": "Microsoft.SendActivity",
-                    "activity": "Tuesday said {turn.activity.text}!"
+                    "$type": "Microsoft.TextInput",
+                    "prompt": "Hello, I'm abh bot. What is your name?",
+                    "property": "user.name"
                 }
             ]
+        },
+        {
+            "$type": "Microsoft.SendActivity",
+            "activity": "Hello {user.name}, nice to talk to you!"
         }
     ]
 }
