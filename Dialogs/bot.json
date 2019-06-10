@@ -1,0 +1,7 @@
+{
+    "files": ["**/*.dialog"],
+    "schemas": {
+        "editor": "editor.schema"
+    },
+    "entry": "root.dialog"
+}
