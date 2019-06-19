@@ -46,6 +46,7 @@ IF EXIST %DEPLOYMENT_TARGET%/%sbn% (
     call :pull_worktree %bn%
 ) else (
     call :add_worktree %bn%
+    call :pull_worktree %bn%
 )
 
 exit /b
