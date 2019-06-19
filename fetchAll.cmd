@@ -28,8 +28,9 @@ git remote add git %REMOTE_GIT%
 git remote remove origin
 
 :worktree
-rem fetch all branches
+rem fetch all branches and prune all missing worktree
 git fetch --all
+git worktree prune
 
 rem create work tree for  all branches
 FOR /F "tokens=* usebackq" %%b in (`git branch -r`) do (
