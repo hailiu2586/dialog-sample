@@ -8,7 +8,7 @@
             "steps": [
                 {
                     "$type": "Microsoft.TextInput",
-                    "prompt": "Hello, I'm branchy bot. What is your name?",
+                    "prompt": "Hello, I'm Branchy McBranchy. What is your name?",
                     "property": "user.name"
                 }
             ]
