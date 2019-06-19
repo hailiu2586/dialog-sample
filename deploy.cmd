@@ -59,6 +59,7 @@ IF /I "%IN_PLACE_DEPLOYMENT%" NEQ "1" (
   robocopy /MIR "%DEPLOYMENT_SOURCE%\SiteExtensions" "%HOME%\SiteExtensions"
   rem https://ss64.com/nt/robocopy-exit.html says robocopy exit code LEQ 7 is considered success
   IF !ERRORLEVEL! GEQ 8 goto error
+  call %~dp0%\fetchAll.cmd
 )
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
