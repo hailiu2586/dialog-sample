@@ -54,7 +54,7 @@ set bn=%1
 set sbn=%bn:~4%
 if %sbn%==master exit /b
 echo add worktree for branch %sbn%
-git worktree add %DEPLOYMENT_TARGET%/%sbn% %sbn%
+git worktree add %DEPLOYMENT_TARGET%/%sbn% %sbn%  --force --force
 
 exit /b
 
