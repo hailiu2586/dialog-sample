@@ -63,6 +63,7 @@ exit /b
 :pull_worktree
 set bn=%1
 set sbn=%bn:~4%
+if %sbn%==master exit /b
 echo pull worktree branch %sbn%
 pushd %DEPLOYMENT_TARGET%\%sbn:/=\%
 git pull --rebase
