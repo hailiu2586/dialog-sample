@@ -1,6 +1,13 @@
 {
     "$schema": "../../app.schema",
     "$type": "Microsoft.AdaptiveDialog",
+    "autoEndDialog": false,
+    "recognizer": {
+        "$type": "Microsoft.RegexRecognizer",
+        "intents": {
+            "DevIntent": "(?i)\/dev"
+        }
+    },
     "steps": [
         {
             "$type": "Microsoft.IfCondition",
@@ -8,7 +15,7 @@
             "steps": [
                 {
                     "$type": "Microsoft.TextInput",
-                    "prompt": "Hello, I'm Branchy McBranchy. What is your name?",
+                    "prompt": "Hello, I'm Branchy McBranchy {conversation.environment}. What is your name?",
                     "property": "user.name"
                 }
             ]
@@ -16,6 +23,15 @@
         {
             "$type": "Microsoft.SendActivity",
             "activity": "Hello {user.name}, nice to talk to you!"
+        }
+    ],
+    "rules": [
+        {
+            "$type": "Microsoft.IntentRule",
+            "intent": "DevIntent",
+            "steps": [
+                "dev"
+            ]
         }
     ]
 }
