@@ -1,10 +1,11 @@
 {
     "$schema": "../../app.schema",
     "$type": "Microsoft.AdaptiveDialog",
+    "autoEndDialog": false,
     "steps": [
         {
             "$type": "Microsoft.TextInput",
-            "prompt": "which environment would you like to use (prod or staging)?",
+            "prompt": "which environment would you like to use (production or staging)?",
             "alwaysPrompt": true,
             "property": "conversation.environment"
         },
